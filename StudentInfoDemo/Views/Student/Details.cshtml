@@ -1,0 +1,48 @@
+﻿@model StudentInfoDemo.Models.Student
+
+@{
+    ViewData["Title"] = "Details of Studnet";
+}
+
+<h1>Student Details</h1>
+
+<div>
+    <h4>Student Information</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dob)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dob)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary text-white mt-2" asp-action="Edit" asp-route-id="@Model?.sid">Edit</a> |
+    <a class="btn btn-dark text-white mt-2" asp-action="Index">Back to List</a>
+</div>

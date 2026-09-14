@@ -1,0 +1,59 @@
+﻿@model IEnumerable<StudentInfoDemo.Models.Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<h1>Student Information</h1>
+
+<p>
+    <a class="btn btn-success text-white" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                <a class="btn btn-primary text-white" asp-action="Edit" asp-route-id="@item.sid">Edit</a> |
+                <a class="btn btn-warning text-white" asp-action="Details" asp-route-id="@item.sid">Details</a> |
+                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.sid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
