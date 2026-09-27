@@ -34,15 +34,24 @@ namespace StudentInfoDemo.Controllers
         }
         public IActionResult Details(int? id)
         {
-            if (id != null)
+            try
             {
-                var student = context.Students.FirstOrDefault(item => item.sid == id);
-                if (student != null)
+
+
+                if (id != null)
                 {
-                    return View(student);
+                    var student = context.Students.FirstOrDefault(item => item.sid == id);
+                    if (student != null)
+                    {
+                        return View(student);
+                    }
                 }
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         public IActionResult Delete(int? id)
         {
@@ -90,6 +99,6 @@ namespace StudentInfoDemo.Controllers
             }
             return RedirectToAction("Index");
         }
-        
+
     }
 }
