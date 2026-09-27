@@ -13,6 +13,7 @@ namespace StudentInfoDemo.Controllers
 
         public IActionResult Index()
         {
+            //List
             var student = context.Students.ToList();
             return View(student);
         }
